@@ -1,6 +1,5 @@
 '''
     Добавить генерацию midi
-    Добавить мелодизацию по позиционированию аккорда T/S/D
     Добавить мелодизацию по лидийскому/дорийскому ладу
     Добавить возможность получать в мелодизации не лад, а интервалы, или короткие диапазоны
 '''
@@ -13,12 +12,15 @@
 # for chord in generator.chords:
 #     print(chord.name)
 
-from utils.harmonizer import Harmonizer
+from utils.helper import get_tonal_plan, shift
+from utils.chord import Chord
+from utils.melodizer import Melodizer
 
-harmonizer = Harmonizer()
-harmonizer.harmonize(['C', 'D'])
+melodizer = Melodizer()
 
-for chord in harmonizer.chords:
-    print(chord.name)
+melodizer.melodize(Chord('C', 'major'), 'func')
+
+print(melodizer.notes)
+
 
 

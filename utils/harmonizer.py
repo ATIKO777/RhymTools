@@ -8,6 +8,8 @@ class Harmonizer:
         self.chords = []
 
     def harmonize(self, motif):
+        self.chords = []
+
         # Перебор мажоров
         current_lad = []
         current_lad.extend(lydian)
