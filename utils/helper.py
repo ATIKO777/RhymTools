@@ -40,3 +40,26 @@ def get_tonal_plan(base, quality):
     need_shift = chromatic.index(base)
     tonal_plan = shift_scale(tonal_plan, need_shift)
     return tonal_plan
+
+def sort_notes(notes, order='ASC'):
+    sorted_notes = []
+
+    if order == 'ASC':
+        for note in chromatic:
+            if note in notes:
+                sorted_notes.append(note)
+    if order == 'DESC':
+        for note in reversed(chromatic):
+            if note in notes:
+                sorted_notes.append(note)
+
+    return sorted_notes
+
+def compare_voices(chord_1, chord_2): 
+    voices_1 = set(chord_1.voicing)
+    voices_2 = set(chord_2.voicing)
+    
+    common_count = len(voices_1 & voices_2)
+    max_count = max(len(voices_1), len(voices_2))
+
+    return f'{common_count}/{max_count}'
